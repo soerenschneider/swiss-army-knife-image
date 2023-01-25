@@ -57,7 +57,7 @@ jobs:
         id: dockerhub
         uses: docker/metadata-action@v4.1.1
         with:
-          images: ${{ env.DH_REGISTRY }}/${{ env.DH_USERNAME }}/network-swiss-knife
+          images: ${{ env.DH_REGISTRY }}/${{ env.DH_USERNAME }}/network-swiss-army-knife
           tags: |
             type=raw,value={{ branch}}-{{date 'YYYYMMDDHHmmss'}}
             type=ref,event=branch
