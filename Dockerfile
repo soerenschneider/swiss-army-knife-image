@@ -1,4 +1,4 @@
-FROM debian:stable-20230522-slim
+FROM debian:stable-20230612-slim
 
 RUN apt update \
     && apt -y upgrade \
