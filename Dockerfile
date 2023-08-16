@@ -20,7 +20,6 @@ RUN apt update \
             less \
             mtr \
             net-tools \
-            netcat \
             netcat-openbsd \
             openssl \
             openssh-client \
