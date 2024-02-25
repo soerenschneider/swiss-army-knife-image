@@ -1,4 +1,11 @@
+FROM golang:1.22.0 AS builder
+
+ARG GRPCURL_VERSION=v1.8.9
+RUN go install github.com/fullstorydev/grpcurl/cmd/grpcurl@${GRPCURL_VERSION}
+
 FROM debian:stable-20231120-slim
+
+COPY --from=builder /go/bin/grpcurl /usr/local/bin/
 
 RUN apt update \
     && apt -y upgrade \
