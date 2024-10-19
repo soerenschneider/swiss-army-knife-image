@@ -3,7 +3,7 @@ FROM golang:1.23.2 AS builder
 ARG GRPCURL_VERSION=v1.8.9
 RUN go install github.com/fullstorydev/grpcurl/cmd/grpcurl@${GRPCURL_VERSION}
 
-FROM debian:stable-20240211-slim
+FROM debian:stable-20241016-slim
 
 COPY --from=builder /go/bin/grpcurl /usr/local/bin/
 
