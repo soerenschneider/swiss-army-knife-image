@@ -1,11 +1,15 @@
-FROM golang:1.23.2 AS builder
+FROM golang:1.23.3 AS builder
 
 ARG GRPCURL_VERSION=v1.8.9
 RUN go install github.com/fullstorydev/grpcurl/cmd/grpcurl@${GRPCURL_VERSION}
 
+ARG COSIGN_VERSION=v2.4.1
+RUN go install github.com/sigstore/cosign/v2/cmd/cosign@${COSIGN_VERSION}
+
 FROM debian:stable-20241016-slim
 
 COPY --from=builder /go/bin/grpcurl /usr/local/bin/
+COPY --from=builder /go/bin/cosign  /usr/local/bin/
 
 RUN apt update \
     && apt -y upgrade \
@@ -32,6 +36,7 @@ RUN apt update \
             openssh-client \
             psmisc \
             socat \
+            signify \
             tcpdump \
             telnet \
             tmux \
