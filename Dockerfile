@@ -36,7 +36,7 @@ RUN apt update \
             openssh-client \
             psmisc \
             socat \
-            signify \
+            signify-openbsd \
             tcpdump \
             telnet \
             tmux \
