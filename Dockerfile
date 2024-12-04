@@ -1,4 +1,4 @@
-FROM golang:1.23.3 AS builder
+FROM golang:1.23.4 AS builder
 
 ARG GRPCURL_VERSION=v1.8.9
 RUN go install github.com/fullstorydev/grpcurl/cmd/grpcurl@${GRPCURL_VERSION}
