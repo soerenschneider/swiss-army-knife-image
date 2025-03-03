@@ -43,7 +43,7 @@ jobs:
           
       - name: Extract metadata for container
         id: gcr
-        uses: docker/metadata-action@v5.6.1
+        uses: docker/metadata-action@v5.7.0
         with:
           images: ${{ env.GH_REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
@@ -55,7 +55,7 @@ jobs:
 
       - name: Extract metadata for container
         id: dockerhub
-        uses: docker/metadata-action@v5.6.1
+        uses: docker/metadata-action@v5.7.0
         with:
           images: ${{ env.DH_REGISTRY }}/${{ env.DH_USERNAME }}/network-swiss-army-knife
           tags: |
