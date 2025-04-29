@@ -6,7 +6,7 @@ RUN go install github.com/fullstorydev/grpcurl/cmd/grpcurl@${GRPCURL_VERSION}
 ARG COSIGN_VERSION=v2.4.1
 RUN go install github.com/sigstore/cosign/v2/cmd/cosign@${COSIGN_VERSION}
 
-FROM debian:stable-20250407-slim
+FROM debian:stable-20250428-slim
 
 COPY --from=builder /go/bin/grpcurl /usr/local/bin/
 COPY --from=builder /go/bin/cosign  /usr/local/bin/
